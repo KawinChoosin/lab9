@@ -1,53 +1,43 @@
 #include<iostream>
-#include<iomanip>
 #include<string>
 using namespace std;
 
-char findGrade(double x) {
-    char a;
-	if(x>=0 ){
-		a='F';
-		if(x>45){
-			a='D';
-			if(x>60){
-				a='C';
-				if(x>75){
-					a='B';
-					if(x>90){
-						a='A';
-					}
-				}
-			}
-		} 
-	}
-    return a;
-}
 
 int main(){
-	int N,i = 0;
-	cout << "Enter the number of students: ";
-	cin >> N;
-	string name[N];
-	float score[N];	
-	
-	while(i < N){
-		cout << "Name of student " << i+1 << ": ";
-		cin.ignore();
-		getline(cin>>ws,name[i]);
-		cout << "Score of student " << i+1 << ": ";
-		cin>>score[i];
-		i++;
+	int age,height,bounty;
+	string name,y;
+	cout<<"Enter your age: ";
+	cin>>age;
+	if(age<=25){
+		cout<<"Enter your height: ";
+		cin>>height;
+		if(height<100){
+			y="Chopper";
+		}else if(height<180){
+				y="Usopp";
+			}else{
+			cout<<"Enter your bounty: ";
+			cin>>bounty;
+			if(bounty>1100000000){
+				y="Zoro";
+			}else{
+				y="Sanji";
+			}
+		}
+		
+	}else{
+		if(age>25 and age<=60){
+			cout<<"Enter your bounty: ";
+			cin>>bounty;
+			if(bounty>500000000){
+				y="Jinbe";
+			}else{
+				y="Franky";
+			}
+		}else{
+			y="Brook";
+		}
 	}
-	
-	i = 0;
-	cout << "---------------------------------------------\n";
-	cout << setw(25) << "Name" << setw(8) << "Score" << setw(8) << "Grade" << "\n";
-	cout << "---------------------------------------------\n";
-	while(i < N){
-		cout << setw(25) << name[i] << setw(8) << score[i] << setw(8) << findGrade(score[i]) << "\n";
-		i++;
-	} 
-	cout << "---------------------------------------------\n";
-
-	return 0;
+	cout<<"Your character = "<<y;
 }
+		
